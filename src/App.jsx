@@ -1,7 +1,6 @@
 import styles from "./app.module.css";
 
 const App = () => {
-  
   return (
     <div className={styles.mainMenu}>
       <div className={styles.blurredOverlay}>
@@ -18,7 +17,7 @@ const App = () => {
         </ol>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default App;
