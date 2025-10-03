@@ -1,9 +1,24 @@
+.mainMenu {
+  height: 100%;
+  background-image: url("./assets/gameImage.jpg");
+  background-size: cover;
+}
+
+.blurredOverlay {
+  height: 100%;
+  background-color: rgba(31, 34, 36, 0.877);
+  backdrop-filter: blur(3px); /* Adjust the blur radius as needed */
+  -webkit-backdrop-filter: blur(8px); /* For Safari compatibility */
+}
+
 .rulesList {
   margin: auto;
 }
 
 .title {
   text-align: center;
+  margin: 0;
+  padding: 20px;
 }
 
 .btn {
