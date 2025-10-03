@@ -15,6 +15,18 @@ describe("Welcome page loads", () => {
   it("renders the title", () => {
     render(<App />);
 
-    expect(screen.getByRole("heading").textContent).toMatch(/Where Are They?/);
+    expect(screen.getByRole("heading", { name: /Where Are They\?/i })).toBeInTheDocument();
+  });
+
+  it("renders the start game button", () => {
+    render(<App />);
+
+    expect(screen.getByRole("button", { name: /Start/i})).toBeInTheDocument();
+  });
+
+  it("renders the leaderboard button", () => {
+    render(<App />);
+
+    expect(screen.getByRole("button", {name: /leaderboard/i})).toBeInTheDocument();
   })
-})
+});
