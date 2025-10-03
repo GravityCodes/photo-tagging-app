@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import {screen, render} from '@testing-library/react';
+import App from "../src/App";
 
 describe("something truthy and falsy", () => {
   it("true to be true", () => {
@@ -8,3 +10,11 @@ describe("something truthy and falsy", () => {
     expect(false).toBe(false);
   });
 });
+
+describe("Welcome page loads", () => {
+  it("renders the title", () => {
+    render(<App />);
+
+    expect(screen.getByRole("heading").textContent).toMatch(/Where Are They?/);
+  })
+})
