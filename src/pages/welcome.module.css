@@ -1,0 +1,49 @@
+.mainMenu {
+  height: 100%;
+  background-image: url("../assets/gameImage.jpg");
+  background-size: cover;
+}
+
+.blurredOverlay {
+  height: 100%;
+  background-color: rgba(31, 34, 36, 0.877);
+  backdrop-filter: blur(3px); /* Adjust the blur radius as needed */
+  -webkit-backdrop-filter: blur(8px); /* For Safari compatibility */
+}
+
+.rulesList {
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.btn {
+  padding: 20px;
+  background-color: rgb(100, 154, 154);
+  border: 2px solid rgb(69, 105, 105);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.rulesList {
+  margin-top: 20px;
+  padding: 50px;
+  border: 3px solid rgb(113, 141, 167);
+  text-align: center;
+  list-style-position: inside;
+  width: 400px;
+  background-color: rgb(68, 114, 123);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+}

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { screen, render } from "@testing-library/react";
-import App from "../src/App";
+import Welcome from "../src/pages/Welcome";
 
 describe("something truthy and falsy", () => {
   it("true to be true", () => {
@@ -13,7 +13,7 @@ describe("something truthy and falsy", () => {
 
 describe("Welcome page loads", () => {
   it("renders the title", () => {
-    render(<App />);
+    render(<Welcome />);
 
     expect(
       screen.getByRole("heading", { name: /Where Are They\?/i }),
@@ -21,13 +21,13 @@ describe("Welcome page loads", () => {
   });
 
   it("renders the start game button", () => {
-    render(<App />);
+    render(<Welcome />);
 
     expect(screen.getByRole("button", { name: /Start/i })).toBeInTheDocument();
   });
 
   it("renders the leaderboard button", () => {
-    render(<App />);
+    render(<Welcome />);
 
     expect(
       screen.getByRole("button", { name: /leaderboard/i }),
