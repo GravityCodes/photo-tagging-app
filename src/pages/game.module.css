@@ -70,3 +70,63 @@
     background-color: rgb(96, 11, 109);
     border-color: #4b1264;
 }
+
+.characterContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.characterContainer img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 99px;
+}
+
+.characterMenu {
+    background-color: #4a2b5e;
+    width: 180px;
+    flex-direction: column;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.characterMenuOption {
+    display: flex;
+    border: 1px solid rgb(227, 140, 227);
+    padding: 5px;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+    align-items: center;
+}
+
+.characterMenuOption:hover {
+    background-color:rgb(227, 140, 227);
+}
+
+.characterMenuOption:first-child {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.characterMenuOption:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.characterMenuOption img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 99px;
+}
+
+.menuOff {
+    display: none;
+}
+
+.menuOn {
+    display: flex;
+}

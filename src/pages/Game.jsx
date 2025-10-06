@@ -5,7 +5,9 @@ const Game = () => {
     
     const [second, setSeconds] = useState(0);
     const [minute, setMinute] = useState(0);
-    const dialog = useRef(null);
+    const [charMenuStatus, setCharMenuStatus] = useState(false);
+    const quitMenu = useRef(null);
+    const characterMenu = useRef(null);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -21,9 +23,17 @@ const Game = () => {
         return () => clearInterval(intervalId);
     });
 
-    const showModal = () => {
-        dialog.current.showModal();
+    const showQuitMenu = () => {
+        quitMenu.current.showModal();
     }
+
+    const imageClickHandler = (e) => {
+        console.log(e);
+        characterMenu.current.style.left = `${e.pageX}px`;
+        characterMenu.current.style.top = `${e.pageY}px`;
+        setCharMenuStatus(!charMenuStatus);
+    }
+
 
     return (
         <div className={styles.gameContainer}>
@@ -32,17 +42,31 @@ const Game = () => {
                     <img src="./clock.svg" alt="timer" />
                     <div className={styles.timer}>{second < 10 ? `${minute}:0${second}` : `${minute}:${second}` }</div>
                 </div>
-                <div>
+                <div className={styles.characterContainer}>
                     <img src="./characters/character1.png" alt="character 1" />
                     <img src="./characters/character2.png" alt="character 2" />
                     <img src="./characters/character3.png" alt="character 3" />
                 </div>
-                <button className={styles.quitBtn} onClick={showModal}>Give up</button>
+                <button className={styles.quitBtn} onClick={showQuitMenu}>Give up</button>
             </div>
             <div className={styles.gameMap}>
-                <img src="./gameImage.jpg" alt="game image" />
+                <img src="./gameImage.jpg" alt="game image" onClick={(e) => imageClickHandler(e)} />
             </div>
-            <dialog ref={dialog}>
+            <div className={`${styles.characterMenu} ${charMenuStatus ? styles.menuOn: styles.menuOff}`} ref={characterMenu}>
+                <div className={styles.characterMenuOption}> 
+                    <img src="./characters/character1.png" alt="character 1" />
+                    <p>Ginger</p>
+                </div>
+                <div className={styles.characterMenuOption}>
+                    <img src="./characters/character2.png" alt="character 2" />
+                    <p>Cat</p>
+                </div>
+                <div className={styles.characterMenuOption}>
+                    <img src="./characters/character3.png" alt="character 3" />
+                    <p>Troublemaker</p>
+                </div>
+            </div>
+            <dialog ref={quitMenu}>
                 <p>Are you sure you want to give up?</p>
                 <form method="dialog" className={styles.dialogForm}>
                     <button className={styles.btn}>No</button>
