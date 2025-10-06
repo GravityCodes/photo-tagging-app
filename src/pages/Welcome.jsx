@@ -1,4 +1,5 @@
 import styles from "./welcome.module.css";
+import { Link } from "react-router";
 
 const Welcome = () => {
   return (
@@ -6,8 +7,8 @@ const Welcome = () => {
       <div className={styles.blurredOverlay}>
         <h1 className={styles.title}>Where Are They?</h1>
         <div className={styles.actions}>
-          <button className={styles.btn}>Start Game</button>
-          <button className={styles.btn}>LeaderBoard</button>
+          <Link to="/game"><button className={styles.btn}>Start Game</button></Link>
+          <Link to="/leaderboard"><button className={styles.btn}>Leaderboard</button></Link>
         </div>
         <ol className={styles.rulesList}>
           <li>Start the game to begin the timer.</li>
