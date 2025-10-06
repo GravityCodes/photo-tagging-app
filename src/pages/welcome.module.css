@@ -1,6 +1,6 @@
 .mainMenu {
   height: 100%;
-  background-image: url("../assets/gameImage.jpg");
+  background-image: url("./gameImage.jpg");
   background-size: cover;
 }
 

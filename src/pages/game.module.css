@@ -1,0 +1,27 @@
+.gameContainer {
+    height: 100vh;
+}
+
+.topBar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    gap: 20px;
+    align-items: center;
+}
+
+.gameMap {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    border: 5px solid rgb(39, 5, 59);
+    background: #64417a;
+    background: linear-gradient(90deg, rgba(100, 65, 122, 1) 0%, rgba(46, 39, 39, 1) 50%, rgba(84, 52, 87, 1) 100%);
+}
+
+.gameMap img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
