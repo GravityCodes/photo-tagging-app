@@ -7,8 +7,12 @@ const Welcome = () => {
       <div className={styles.blurredOverlay}>
         <h1 className={styles.title}>Where Are They?</h1>
         <div className={styles.actions}>
-          <Link to="/game"><button className={styles.btn}>Start Game</button></Link>
-          <Link to="/leaderboard"><button className={styles.btn}>Leaderboard</button></Link>
+          <Link to="/game">
+            <button className={styles.btn}>Start Game</button>
+          </Link>
+          <Link to="/leaderboard">
+            <button className={styles.btn}>Leaderboard</button>
+          </Link>
         </div>
         <ol className={styles.rulesList}>
           <li>Start the game to begin the timer.</li>

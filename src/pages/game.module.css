@@ -1,132 +1,137 @@
 .gameContainer {
-    height: 100vh;
+  height: 100vh;
 }
 
 .topBar {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  gap: 20px;
+  align-items: center;
 }
 
-.timerContainer{
-    display: flex;
-    gap: 10px;
+.timerContainer {
+  display: flex;
+  gap: 10px;
 }
 
 .timer {
-    width: 50px;
-    text-align: center;
+  width: 50px;
+  text-align: center;
 }
 
 .gameMap {
-    width: 1000px;
-    height: 1000px;
-    margin: 0 auto;
-    border: 5px solid rgb(39, 5, 59);
-    background: #64417a;
-    background: linear-gradient(90deg, rgba(100, 65, 122, 1) 0%, rgba(46, 39, 39, 1) 50%, rgba(84, 52, 87, 1) 100%);
+  width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  border: 5px solid rgb(39, 5, 59);
+  background: #64417a;
+  background: linear-gradient(
+    90deg,
+    rgba(100, 65, 122, 1) 0%,
+    rgba(46, 39, 39, 1) 50%,
+    rgba(84, 52, 87, 1) 100%
+  );
 }
 
 .gameMap img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .quitBtn {
-    padding: 10px;
-    border-radius: 2px;
-    border: 2px solid #64417a;
-    font-weight: bold;
-    background-color: #4a2b5e;
-    cursor: pointer;
-    transition: background-color 0.1s;
+  padding: 10px;
+  border-radius: 2px;
+  border: 2px solid #64417a;
+  font-weight: bold;
+  background-color: #4a2b5e;
+  cursor: pointer;
+  transition: background-color 0.1s;
 }
 
 .quitBtn:hover {
-    background-color: rgb(95, 35, 35);
-    border-color: #641212;
+  background-color: rgb(95, 35, 35);
+  border-color: #641212;
 }
 
 .btn {
-    padding: 10px;
-    border-radius: 2px;
-    border: 2px solid #64417a;
-    font-weight: bold;
-    background-color: #4a2b5e;
-    cursor: pointer;
-    transition: background-color 0.1s;
+  padding: 10px;
+  border-radius: 2px;
+  border: 2px solid #64417a;
+  font-weight: bold;
+  background-color: #4a2b5e;
+  cursor: pointer;
+  transition: background-color 0.1s;
 }
 
 .dialogForm {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .btn:hover {
-    background-color: rgb(96, 11, 109);
-    border-color: #4b1264;
+  background-color: rgb(96, 11, 109);
+  border-color: #4b1264;
 }
 
 .characterContainer {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .characterContainer img {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-    border-radius: 99px;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 99px;
 }
 
 .characterMenu {
-    background-color: #4a2b5e;
-    width: 180px;
-    flex-direction: column;
-    border-radius: 10px;
-    position: absolute;
+  background-color: #4a2b5e;
+  width: 180px;
+  flex-direction: column;
+  border-radius: 10px;
+  position: absolute;
 }
 
 .characterMenuOption {
-    display: flex;
-    border: 1px solid rgb(227, 140, 227);
-    padding: 5px;
-    gap: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    font-size: 0.9rem;
-    align-items: center;
+  display: flex;
+  border: 1px solid rgb(227, 140, 227);
+  padding: 5px;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  align-items: center;
 }
 
 .characterMenuOption:hover {
-    background-color:rgb(227, 140, 227);
+  background-color: rgb(227, 140, 227);
 }
 
 .characterMenuOption:first-child {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .characterMenuOption:last-child {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .characterMenuOption img {
-    height: 40px;
-    width: 40px;
-    object-fit: cover;
-    border-radius: 99px;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 99px;
 }
 
 .menuOff {
-    display: none;
+  display: none;
 }
 
 .menuOn {
-    display: flex;
+  display: flex;
 }
