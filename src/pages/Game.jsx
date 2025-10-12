@@ -58,8 +58,10 @@ const Game = () => {
         />
       </div>
       <div
-        className={`${styles.characterMenu} ${charMenuStatus ? styles.menuOn : styles.menuOff}`}
+        className={`${styles.characterMenu}`}
         ref={characterMenu}
+        style={{ display: charMenuStatus ? "flex" : "none" }}
+        data-testid="characterSelect"
       >
         <div className={styles.characterMenuOption}>
           <img src="./characters/character1.png" alt="character 1" />

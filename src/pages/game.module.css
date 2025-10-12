@@ -89,6 +89,7 @@
 }
 
 .characterMenu {
+  display: none;
   background-color: #4a2b5e;
   width: 180px;
   flex-direction: column;
