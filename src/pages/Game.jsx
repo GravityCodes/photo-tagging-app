@@ -4,10 +4,14 @@ import { Link } from "react-router";
 const Game = () => {
   const [second, setSeconds] = useState(0);
   const [minute, setMinute] = useState(0);
-  const [charMenuStatus, setCharMenuStatus] = useState(false);
   const quitMenu = useRef(null);
   const characterMenu = useRef(null);
-  const [currentCoords, setCurrentCoords] = useState({});
+  const [charMenuStatus, setCharMenuStatus] = useState(false);
+  const wrongAnswer = useRef(null);
+  const [wrongAnswerStatus, setWrongAnswerStatus] = useState(false);
+  const [currentCoordsPercentage, setCurrentCoordsPercentage] = useState({});
+  const [currentCoords, setCurrectCords] = useState({});
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setSeconds((s) => s + 1);
@@ -28,21 +32,26 @@ const Game = () => {
   const imageClickHandler = (e) => {
     const rect = e.target.getBoundingClientRect();
     // console.log(`client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`)
-    setCurrentCoords({
+    setCurrentCoordsPercentage({
       x: (e.clientX - rect.left) / rect.width,
       y: (e.clientY - rect.top) / rect.height,
+    });
+    setCurrectCords({
+      x: e.clientX,
+      y: e.clientY
     });
     characterMenu.current.style.left = `${e.pageX}px`;
     characterMenu.current.style.top = `${e.pageY}px`;
     setCharMenuStatus(!charMenuStatus);
+    setWrongAnswerStatus(false);
   };
 
   const menuOptionClickhandler = async (e) => {
-    console.log(
-      e.target.textContent.toLowerCase() ||
-        e.target.parentElement.outerText.toLowerCase(),
-    );
-    console.log(currentCoords);
+    // console.log(
+    //   e.target.textContent.toLowerCase() ||
+    //     e.target.parentElement.outerText.toLowerCase(),
+    // );
+    // console.log(currentCoords);
     const name =
       e.target.textContent.toLowerCase() ||
       e.target.parentElement.outerText.toLowerCase();
@@ -52,7 +61,7 @@ const Game = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, x: currentCoords.x, y: currentCoords.y }),
+        body: JSON.stringify({ name, x: currentCoordsPercentage.x, y: currentCoordsPercentage.y }),
       });
 
       if (!response.ok) {
@@ -61,7 +70,22 @@ const Game = () => {
 
       const result = await response.json();
 
-      console.log(result);
+      // console.log(result);
+      
+      setCharMenuStatus(!charMenuStatus);
+
+      if(result.msg) {
+
+      }else {
+        wrongAnswer.current.style.left = `${currentCoords.x}px`;
+        wrongAnswer.current.style.top = `${currentCoords.y}px`;
+        setWrongAnswerStatus(!wrongAnswerStatus);
+        setTimeout(() => {
+          setWrongAnswerStatus(false);
+        }, 2000);
+      }
+
+
     } catch (error) {
       console.log("An error has occured", error);
     }
@@ -119,6 +143,9 @@ const Game = () => {
           <img src="./characters/character3.png" alt="character 3" />
           <p>Troublemaker</p>
         </div>
+      </div>
+      <div className={styles.wrongAnswer} ref={wrongAnswer} style={{ display: wrongAnswerStatus ? "flex" : "none" }}>
+        Wrong!
       </div>
       <dialog ref={quitMenu} role="dialog">
         <p>Are you sure you want to give up?</p>

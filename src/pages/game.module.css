@@ -136,3 +136,28 @@
 .menuOn {
   display: flex;
 }
+
+.wrongAnswer {
+  display: none;
+  background-color: #5e2b2b;
+  color: #c8afaf;
+  flex-direction: column;
+  border: 1px solid rgb(162, 82, 82);
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  animation: fade-out 0.5s forwards ease-in ;
+  animation-delay: 0.5s;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
