@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event";
 import { renderWithRouter } from "./test-utils";
 import Game from "../src/pages/Game";
 
-
 /*
 
 
@@ -28,7 +27,7 @@ describe("Game Page Functionality", () => {
 
     const image = screen.getByAltText(/game/i);
     const options = screen.getByTestId("characterSelect");
-    
+
     expect(options).not.toBeVisible();
 
     await userEvent.click(image);

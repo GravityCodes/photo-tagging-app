@@ -7,7 +7,7 @@ const Game = () => {
   const [charMenuStatus, setCharMenuStatus] = useState(false);
   const quitMenu = useRef(null);
   const characterMenu = useRef(null);
-
+  const [currentCoords, setCurrentCoords] = useState({});
   useEffect(() => {
     const intervalId = setInterval(() => {
       setSeconds((s) => s + 1);
@@ -26,10 +26,45 @@ const Game = () => {
   };
 
   const imageClickHandler = (e) => {
-    console.log(e);
+    const rect = e.target.getBoundingClientRect();
+    // console.log(`client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`)
+    setCurrentCoords({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
     characterMenu.current.style.left = `${e.pageX}px`;
     characterMenu.current.style.top = `${e.pageY}px`;
     setCharMenuStatus(!charMenuStatus);
+  };
+
+  const menuOptionClickhandler = async (e) => {
+    console.log(
+      e.target.textContent.toLowerCase() ||
+        e.target.parentElement.outerText.toLowerCase(),
+    );
+    console.log(currentCoords);
+    const name =
+      e.target.textContent.toLowerCase() ||
+      e.target.parentElement.outerText.toLowerCase();
+    try {
+      const response = await fetch(import.meta.env.VITE_CHECK_ANSWER, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, x: currentCoords.x, y: currentCoords.y }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      console.log(result);
+    } catch (error) {
+      console.log("An error has occured", error);
+    }
   };
 
   return (
@@ -63,15 +98,24 @@ const Game = () => {
         style={{ display: charMenuStatus ? "flex" : "none" }}
         data-testid="characterSelect"
       >
-        <div className={styles.characterMenuOption}>
+        <div
+          className={styles.characterMenuOption}
+          onClick={menuOptionClickhandler}
+        >
           <img src="./characters/character1.png" alt="character 1" />
           <p>Ginger</p>
         </div>
-        <div className={styles.characterMenuOption}>
+        <div
+          className={styles.characterMenuOption}
+          onClick={menuOptionClickhandler}
+        >
           <img src="./characters/character2.png" alt="character 2" />
           <p>Cat</p>
         </div>
-        <div className={styles.characterMenuOption}>
+        <div
+          className={styles.characterMenuOption}
+          onClick={menuOptionClickhandler}
+        >
           <img src="./characters/character3.png" alt="character 3" />
           <p>Troublemaker</p>
         </div>
