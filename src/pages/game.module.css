@@ -22,7 +22,8 @@
 }
 
 .gameMap {
-  width: 1000px;
+  position: relative;
+  width: 666.5px;
   height: 1000px;
   margin: 0 auto;
   border: 5px solid rgb(39, 5, 59);
@@ -146,7 +147,7 @@
   border-radius: 5px;
   padding: 8px;
   position: absolute;
-  animation: fade-out 0.5s forwards ease-in ;
+  animation: fade-out 0.5s forwards ease-in;
   animation-delay: 0.5s;
 }
 
@@ -161,3 +162,12 @@
   }
 }
 
+.marker {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid rgb(56, 126, 56);
+  background-color: #369f3bd5;
+  pointer-events: none;
+}
