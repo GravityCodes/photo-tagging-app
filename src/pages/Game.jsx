@@ -59,9 +59,9 @@ const Game = () => {
 
   const imageClickHandler = (e) => {
     const rect = e.target.getBoundingClientRect();
-    console.log(
-      `client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`,
-    );
+    // console.log(
+    //   `client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`,
+    // );
     setCurrentCoordsPercentage({
       x: (e.clientX - rect.left) / rect.width,
       y: (e.clientY - rect.top) / rect.height,
@@ -85,6 +85,11 @@ const Game = () => {
     const name =
       e.target.textContent.toLowerCase() ||
       e.target.parentElement.outerText.toLowerCase();
+
+    if (charactersFound[name]) {
+      return;
+    }
+
     try {
       const response = await fetch(import.meta.env.VITE_CHECK_ANSWER, {
         method: "POST",
@@ -134,30 +139,28 @@ const Game = () => {
   };
 
   const leaderboard = async (formData) => {
-    try{
+    try {
       const name = formData.get("playerName");
-      const time = (minute * 60) + second;
-      const data = {name, time};
+      const time = minute * 60 + second;
+      const data = { name, time };
 
       const request = await fetch(import.meta.env.VITE_LEADERBOARD, {
         method: "POST",
         headers: {
-          "Content-Type" : "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
 
-      if(!request.ok) {
+      if (!request.ok) {
         throw new Error("Something went wrong.");
       }
 
       navigate("/leaderboard");
-
-    }catch(error){
+    } catch (error) {
       console.error("Something went wrong:", error);
     }
-
-  }
+  };
 
   return (
     <div className={styles.gameContainer}>
@@ -217,6 +220,15 @@ const Game = () => {
         <div
           className={styles.characterMenuOption}
           onClick={menuOptionClickhandler}
+          style={
+            charactersFound.ginger
+              ? {
+                  filter: "grayscale(1)",
+                  backgroundColor: "gray",
+                  pointerEvents: "none",
+                }
+              : {}
+          }
         >
           <img src="./characters/character1.png" alt="character 1" />
           <p>Ginger</p>
@@ -224,6 +236,15 @@ const Game = () => {
         <div
           className={styles.characterMenuOption}
           onClick={menuOptionClickhandler}
+          style={
+            charactersFound.cat
+              ? {
+                  filter: "grayscale(1)",
+                  backgroundColor: "gray",
+                  pointerEvents: "none",
+                }
+              : {}
+          }
         >
           <img src="./characters/character2.png" alt="character 2" />
           <p>Cat</p>
@@ -231,6 +252,15 @@ const Game = () => {
         <div
           className={styles.characterMenuOption}
           onClick={menuOptionClickhandler}
+          style={
+            charactersFound.troublemaker
+              ? {
+                  filter: "grayscale(1)",
+                  backgroundColor: "gray",
+                  pointerEvents: "none",
+                }
+              : {}
+          }
         >
           <img src="./characters/character3.png" alt="character 3" />
           <p>Troublemaker</p>
