@@ -1,6 +1,7 @@
 import styles from "./game.module.css";
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+
 const Game = () => {
   const [second, setSeconds] = useState(0);
   const [minute, setMinute] = useState(0);
@@ -19,6 +20,7 @@ const Game = () => {
   });
   const [winStatus, setWinStatus] = useState(false);
   const intervalRef = useRef(null);
+  let navigate = useNavigate();
 
   //set Timer
   useEffect(() => {
@@ -57,9 +59,9 @@ const Game = () => {
 
   const imageClickHandler = (e) => {
     const rect = e.target.getBoundingClientRect();
-    // console.log(
-    //   `client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`,
-    // );
+    console.log(
+      `client X: ${e.clientX} page Y:${e.clientY} \n rect: height: ${rect.top} width: ${rect.left} \n coords: ${(e.clientX - rect.left) / rect.width}, ${(e.clientY - rect.top) / rect.height}`,
+    );
     setCurrentCoordsPercentage({
       x: (e.clientX - rect.left) / rect.width,
       y: (e.clientY - rect.top) / rect.height,
@@ -130,6 +132,32 @@ const Game = () => {
       console.log("An error has occured", error);
     }
   };
+
+  const leaderboard = async (formData) => {
+    try{
+      const name = formData.get("playerName");
+      const time = (minute * 60) + second;
+      const data = {name, time};
+
+      const request = await fetch(import.meta.env.VITE_LEADERBOARD, {
+        method: "POST",
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if(!request.ok) {
+        throw new Error("Something went wrong.");
+      }
+
+      navigate("/leaderboard");
+
+    }catch(error){
+      console.error("Something went wrong:", error);
+    }
+
+  }
 
   return (
     <div className={styles.gameContainer}>
@@ -224,6 +252,35 @@ const Game = () => {
           </Link>
         </form>
       </dialog>
+      <div
+        className={styles.winScreen}
+        style={{ display: winStatus ? "flex" : "none" }}
+      >
+        <form className={styles.winForm} action={leaderboard}>
+          <p className={styles.formTitle}>Well Played!</p>
+          <p>
+            Your Time:{" "}
+            {second < 10 ? `${minute}:0${second}` : `${minute}:${second}`}
+          </p>
+          <div className={styles.formInputField}>
+            <label htmlFor="playerName">
+              Enter your name to be displayed in the leaderboard:
+            </label>
+            <input
+              type="text"
+              name="playerName"
+              id="playerName"
+              maxLength={25}
+            />
+          </div>
+          <div className={styles.btnContainer}>
+            <button type="submit">Submit</button>
+            <Link to="/">
+              <button type="button">Exit</button>
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

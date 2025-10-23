@@ -171,3 +171,73 @@
   background-color: #369f3bd5;
   pointer-events: none;
 }
+
+.winScreen {
+  position: absolute;
+  background-color: #485d633a;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+}
+
+.winForm {
+  background-color: rgba(63, 71, 76);
+  height: 300px;
+  width: 450px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgb(127, 143, 153);
+  border-radius: 5px;
+  margin-top: 5%;
+  backdrop-filter: blur(10px);
+}
+
+.formTitle {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.formDesc {
+  color: rgb(211, 211, 211);
+}
+
+.formInputField {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.formInputField label {
+  font-size: 0.9rem;
+}
+
+.formInputField input {
+  border-radius: 5px;
+  border: 1px solid rgb(127, 143, 153);
+  padding: 5px;
+  background-color: rgb(35, 39, 42);
+  width: 100%;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btnContainer button {
+  border: 1px solid rgb(127, 143, 153);
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgb(132, 149, 160);
+  cursor: pointer;
+}
