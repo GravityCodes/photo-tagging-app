@@ -77,7 +77,7 @@ const Leaderboard = () => {
           </tbody>
         </table>
         <Link to="/">
-          <button>Back</button>
+          <button className={styles.btn}>Back</button>
         </Link>
       </div>
     </>
