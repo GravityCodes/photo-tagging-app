@@ -296,10 +296,11 @@ const Game = () => {
         style={{ display: winStatus ? "flex" : "none" }}
       >
         <form className={styles.winForm} action={leaderboard}>
+          <img src="./check-circle.svg" alt="checkmark" />
           <p className={styles.formTitle}>Well Played!</p>
-          <p>
-            Your Time:{" "}
+          <p className={styles.formTime}>
             {second < 10 ? `${minute}:0${second}` : `${minute}:${second}`}
+            <img src="./winTimer.svg" alt="timer" />
           </p>
           <div className={styles.formInputField}>
             <label htmlFor="playerName">
@@ -309,13 +310,13 @@ const Game = () => {
               type="text"
               name="playerName"
               id="playerName"
-              maxLength={25}
+              maxLength={8}
             />
           </div>
           <div className={styles.btnContainer}>
-            <button type="submit">Submit</button>
+            <button type="submit" className={styles.btn}>Submit</button>
             <Link to="/">
-              <button type="button">Exit</button>
+              <button type="button" className={styles.btn}>Exit</button>
             </Link>
           </div>
         </form>

@@ -1,5 +1,6 @@
 .gameContainer {
   height: 100vh;
+  background-color: var(--clr-surface-a0);
 }
 
 .topBar {
@@ -26,14 +27,8 @@
   width: 666.5px;
   height: 1000px;
   margin: 0 auto;
-  border: 5px solid rgb(39, 5, 59);
-  background: #64417a;
-  background: linear-gradient(
-    90deg,
-    rgba(100, 65, 122, 1) 0%,
-    rgba(46, 39, 39, 1) 50%,
-    rgba(84, 52, 87, 1) 100%
-  );
+  border: 5px solid var(--clr-surface-a20);
+  background: var(--clr-surface-a20);
 }
 
 .gameMap img {
@@ -45,33 +40,29 @@
 .quitBtn {
   padding: 10px;
   border-radius: 2px;
-  border: 2px solid #64417a;
+  border: 2px solid var(--clr-surface-a20);
   border-radius: 5px;
   font-weight: bold;
-  background-color: #4a2b5e;
+  background-color: var(--clr-surface-a30);
+  color: var(--clr-primary-a30);
   cursor: pointer;
   transition: background-color 0.1s;
 }
 
 .quitBtn:hover {
-  background-color: rgb(95, 35, 35);
-  border-color: #641212;
+  background-color: var(--clr-danger-a10);
+  border-color: var(--clr-danger-a20);
+  color: var(--clr-surface-a0);
 }
 
 .btn {
-  padding: 10px;
-  border-radius: 2px;
-  border: 2px solid #64417a;
-  font-weight: bold;
-  background-color: #4a2b5e;
-  cursor: pointer;
-  transition: background-color 0.1s;
+ composes: btn from '../global.css';
 }
 
 .quitDialog {
-  border: 2px solid rgb(96, 11, 109);
+  border: 2px solid var(--clr-surface-a20);
   border-radius: 5px;
-  background-color: #1c1024;
+  background-color: var(--clr-surface-a10);
 }
 
 .dialogForm {
@@ -79,10 +70,7 @@
   gap: 10px;
 }
 
-.btn:hover {
-  background-color: rgb(96, 11, 109);
-  border-color: #4b1264;
-}
+
 
 .characterContainer {
   display: flex;
@@ -98,7 +86,7 @@
 
 .characterMenu {
   display: none;
-  background-color: #4a2b5e;
+  background-color: var(--clr-surface-a10);
   width: 180px;
   flex-direction: column;
   border-radius: 10px;
@@ -107,7 +95,7 @@
 
 .characterMenuOption {
   display: flex;
-  border: 1px solid rgb(227, 140, 227);
+  border: 1px solid var(--clr-surface-a20);
   padding: 5px;
   gap: 10px;
   cursor: pointer;
@@ -117,7 +105,8 @@
 }
 
 .characterMenuOption:hover {
-  background-color: rgb(227, 140, 227);
+  background-color: var(--clr-primary-a0);
+  color: var(--clr-surface-a0);
 }
 
 .characterMenuOption:first-child {
@@ -147,10 +136,10 @@
 
 .wrongAnswer {
   display: none;
-  background-color: #5e2b2b;
-  color: #c8afaf;
+  background-color: var(--clr-danger-a10);
+  color: var(--clr-surface-a0);
   flex-direction: column;
-  border: 1px solid rgb(162, 82, 82);
+  border: 1px solid var(--clr-danger-a20);
   border-radius: 5px;
   padding: 8px;
   position: absolute;
@@ -174,14 +163,29 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  border: 2px solid rgb(56, 126, 56);
-  background-color: #369f3bd5;
+  border: 2px solid var(--clr-success-a10);
+  background-color: var(--clr-success-a0);
   pointer-events: none;
+  animation-name: grow;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .winScreen {
   position: absolute;
-  background-color: #485d633a;
+  background-color: #1016177b;
   height: 100vh;
   width: 100vw;
   left: 0;
@@ -192,15 +196,20 @@
 }
 
 .winForm {
-  background-color: rgba(63, 71, 76);
-  height: 300px;
+  background-color: var(--clr-surface-a10);
+  height: 380px;
   width: 450px;
   padding: 20px;
   text-align: center;
-  border: 1px solid rgb(127, 143, 153);
+  border: 1px solid var(--clr-surface-a20);
   border-radius: 5px;
   margin-top: 5%;
   backdrop-filter: blur(10px);
+}
+
+
+.winForm > img {
+  height: 50px;
 }
 
 .formTitle {
@@ -210,7 +219,7 @@
 }
 
 .formDesc {
-  color: rgb(211, 211, 211);
+  color: var(--clr-surface-a50);
 }
 
 .formInputField {
@@ -219,19 +228,34 @@
   align-items: flex-start;
   gap: 10px;
   margin-bottom: 20px;
+  padding: 2px;
   flex-direction: column;
 }
+
 
 .formInputField label {
   font-size: 0.9rem;
 }
 
+.formTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  gap: 5px;
+}
+
 .formInputField input {
   border-radius: 5px;
-  border: 1px solid rgb(127, 143, 153);
+  border: 2px solid var(--clr-surface-a30);
   padding: 5px;
-  background-color: rgb(35, 39, 42);
+  background-color: var(--clr-surface-a20);
   width: 100%;
+}
+
+.formInputField input:focus {
+  border: 2px solid var(--clr-primary-a30);
+  outline: none;
 }
 
 .btnContainer {
@@ -241,12 +265,12 @@
 }
 
 .btnContainer button {
-  border: 1px solid rgb(127, 143, 153);
   padding: 10px 20px;
   width: 100%;
-  border-radius: 5px;
-  background-color: rgb(132, 149, 160);
-  cursor: pointer;
+}
+
+.btn {
+   composes: btn from '../global.css';
 }
 
 .loadingScreen {
@@ -260,8 +284,8 @@
 
 .loadingIcon {
   border-radius: 50%;
-  border: 5px solid rgb(107, 73, 110);
-  border-top: 5px solid rgb(255, 255, 255);
+  border: 5px solid var(--clr-primary-a20);
+  border-top: 5px solid var(--clr-surface-a0);
   width: 35px;
   height: 35px;
   animation: spin 0.5s ease-out infinite;
