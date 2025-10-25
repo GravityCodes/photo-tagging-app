@@ -1,6 +1,7 @@
 .gameContainer {
   height: 100vh;
   background-color: var(--clr-surface-a0);
+  overflow: scroll;
 }
 
 .topBar {
@@ -29,6 +30,7 @@
   margin: 0 auto;
   border: 5px solid var(--clr-surface-a20);
   background: var(--clr-surface-a20);
+  
 }
 
 .gameMap img {
@@ -298,4 +300,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (width <= 680px) {
+      .gamemap {
+        margin: 20px;
+      }  
+
+    .characterContainer img {
+      height: 35px;
+      width: 35px;
+      object-fit: cover;
+      border-radius: 99px;
+    }
+
 }

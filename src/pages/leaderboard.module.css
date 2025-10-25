@@ -1,9 +1,13 @@
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  padding: 20px;
+}
+
+.container a {
+  width: 100%;
 }
 
 .loadingScreen {
@@ -35,8 +39,9 @@
 }
 
 .container table {
-  width: 600px;
-
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
   border-collapse: collapse;
 }
 
@@ -53,7 +58,8 @@
 
 .btn{
   composes: btn from '../global.css';
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   margin-top: 20px;
   padding: 20px;
   font-size: 1rem;

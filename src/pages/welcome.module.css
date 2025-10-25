@@ -57,3 +57,27 @@
   font-weight:700;
   font-size: 1.4rem;
 }
+
+@media screen and (width <= 540px) {
+  .rulesList {
+    max-width: 250px;
+  }
+  .rulesList p {
+    font-size: 1.1rem;
+  }
+
+  .rulesList li::marker {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (width <= 375px) {
+  .rulesList {
+    max-width: 200px;
+    font-size: 0.9rem;
+  }
+
+  .rulesList li::marker {
+    font-size: 1.1rem;
+  }
+}
