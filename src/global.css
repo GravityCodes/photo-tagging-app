@@ -4,13 +4,59 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /** Base colors */
+  --clr-dark-a0: #000000;
+  --clr-light-a0: #ffffff;
+
+  /** Theme primary colors */
+  --clr-primary-a0: #8de7f7;
+  --clr-primary-a10: #9ceaf8;
+  --clr-primary-a20: #aaedf9;
+  --clr-primary-a30: #b7effa;
+  --clr-primary-a40: #c4f2fb;
+  --clr-primary-a50: #d0f5fb;
+
+  /** Theme surface colors */
+  --clr-surface-a0: #101617;
+  --clr-surface-a10: #262b2c;
+  --clr-surface-a20: #3d4243;
+  --clr-surface-a30: #565a5b;
+  --clr-surface-a40: #6f7374;
+  --clr-surface-a50: #8a8d8e;
+
+  /** Theme tonal surface colors */
+  --clr-surface-tonal-a0: #1c2729;
+  --clr-surface-tonal-a10: #313b3d;
+  --clr-surface-tonal-a20: #485153;
+  --clr-surface-tonal-a30: #5f6769;
+  --clr-surface-tonal-a40: #787f80;
+  --clr-surface-tonal-a50: #919798;
+
+  /** Success colors */
+  --clr-success-a0: #22946e;
+  --clr-success-a10: #47d5a6;
+  --clr-success-a20: #9ae8ce;
+
+  /** Warning colors */
+  --clr-warning-a0: #a87a2a;
+  --clr-warning-a10: #d7ac61;
+  --clr-warning-a20: #ecd7b2;
+
+  /** Danger colors */
+  --clr-danger-a0: #9c2121;
+  --clr-danger-a10: #d94a4a;
+  --clr-danger-a20: #eb9e9e;
+
+  /** Info colors */
+  --clr-info-a0: #21498a;
+  --clr-info-a10: #4077d1;
+  --clr-info-a20: #92b2e5;
+
 }
 
 body {
