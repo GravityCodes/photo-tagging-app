@@ -21,6 +21,7 @@ const Game = () => {
   const [winStatus, setWinStatus] = useState(false);
   const intervalRef = useRef(null);
   let navigate = useNavigate();
+  const [loaded, setLoaded] = useState(false);
 
   //set Timer
   useEffect(() => {
@@ -195,10 +196,18 @@ const Game = () => {
         </button>
       </div>
       <div className={styles.gameMap}>
+        {!loaded && (
+          <div className={styles.loadingScreen}>
+            <span className={styles.loadingIcon}></span>
+            <p>Loading...</p>
+          </div>
+        )}
         <img
           src="./gameImage.jpg"
           alt="game image"
           onClick={(e) => imageClickHandler(e)}
+          onLoad={() => setLoaded(true)}
+          style={{ display: loaded ? "block" : "none" }}
         />
         {markers.length > 0 &&
           markers.map((marker, i) => {
@@ -273,7 +282,7 @@ const Game = () => {
       >
         Wrong!
       </div>
-      <dialog ref={quitMenu} role="dialog">
+      <dialog ref={quitMenu} role="dialog" className={styles.quitDialog}>
         <p>Are you sure you want to give up?</p>
         <form method="dialog" className={styles.dialogForm}>
           <button className={styles.btn}>No</button>
