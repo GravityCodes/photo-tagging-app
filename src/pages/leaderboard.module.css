@@ -56,8 +56,8 @@
   color: var(--clr-primary-a30);
 }
 
-.btn{
-  composes: btn from '../global.css';
+.btn {
+  composes: btn from "../global.css";
   width: 100%;
   max-width: 600px;
   margin-top: 20px;

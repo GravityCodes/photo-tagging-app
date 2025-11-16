@@ -314,9 +314,13 @@ const Game = () => {
             />
           </div>
           <div className={styles.btnContainer}>
-            <button type="submit" className={styles.btn}>Submit</button>
+            <button type="submit" className={styles.btn}>
+              Submit
+            </button>
             <Link to="/">
-              <button type="button" className={styles.btn}>Exit</button>
+              <button type="button" className={styles.btn}>
+                Exit
+              </button>
             </Link>
           </div>
         </form>

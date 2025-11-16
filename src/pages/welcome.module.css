@@ -14,16 +14,13 @@
 }
 
 .btn {
-  composes: btn from '../global.css';
+  composes: btn from "../global.css";
 }
 
-
 .start {
-
 }
 
 .leaderboard {
-
 }
 
 .actions {
@@ -54,7 +51,7 @@
 
 .rulesList li::marker {
   color: var(--clr-primary-a30);
-  font-weight:700;
+  font-weight: 700;
   font-size: 1.4rem;
 }
 

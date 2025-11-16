@@ -30,7 +30,6 @@
   margin: 0 auto;
   border: 5px solid var(--clr-surface-a20);
   background: var(--clr-surface-a20);
-  
 }
 
 .gameMap img {
@@ -58,7 +57,7 @@
 }
 
 .btn {
- composes: btn from '../global.css';
+  composes: btn from "../global.css";
 }
 
 .quitDialog {
@@ -71,8 +70,6 @@
   display: flex;
   gap: 10px;
 }
-
-
 
 .characterContainer {
   display: flex;
@@ -209,7 +206,6 @@
   backdrop-filter: blur(10px);
 }
 
-
 .winForm > img {
   height: 50px;
 }
@@ -233,7 +229,6 @@
   padding: 2px;
   flex-direction: column;
 }
-
 
 .formInputField label {
   font-size: 0.9rem;
@@ -272,7 +267,7 @@
 }
 
 .btn {
-   composes: btn from '../global.css';
+  composes: btn from "../global.css";
 }
 
 .loadingScreen {
@@ -303,15 +298,14 @@
 }
 
 @media screen and (width <= 680px) {
-      .gamemap {
-        margin: 20px;
-      }  
+  .gamemap {
+    margin: 20px;
+  }
 
-    .characterContainer img {
-      height: 35px;
-      width: 35px;
-      object-fit: cover;
-      border-radius: 99px;
-    }
-
+  .characterContainer img {
+    height: 35px;
+    width: 35px;
+    object-fit: cover;
+    border-radius: 99px;
+  }
 }
